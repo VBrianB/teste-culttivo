@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
   html, body, #root{
     height: 100%
   }
+  b{
+    font-weight: 800;
+    color: white;
+  }
 `
 
 const App = () => {
