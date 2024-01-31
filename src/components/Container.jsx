@@ -1,5 +1,6 @@
 import styled from "styled-components"
-import Title from "./Titulo"
+import Title from "./Title"
+import Carousel from "./Carousel"
 
 const MainContainer = styled.main`
     height: 100%;
@@ -10,6 +11,7 @@ const Container = () => {
     return(
         <MainContainer>
             <Title />
+            <Carousel />
         </MainContainer>
     )
 }
