@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import 'boxicons'
 import DrizzlingImage from '../assets/weather_icon_example_drizzling.png'
+import { useEffect, useState } from "react"
+import useImage from "../hooks/useImage"
 
 const CardContainer = styled.div`
     display: flex;
@@ -8,10 +10,8 @@ const CardContainer = styled.div`
     background-color: white;
     border-radius: 20px;
     padding: 20px;
-    width: max-content;
-    height: max-content;
-    box-shadow: 0px 24px 32px 0px #0000003b;
     border: 1px solid #00000024;
+    height: 100%;
 `
 
 const TopCardData = styled.div`
@@ -41,6 +41,11 @@ const AlertMessage = styled.div`
     font-size: 14px; 
     text-align: left;
     max-width: 320px;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
 `
 
 const WeatherDataArea = styled.div`
@@ -71,6 +76,7 @@ const WeatherData = styled.p`
     margin: 0 5px;
     padding: 8px;
     border-radius:6px;
+    font-size: 12px;
 
     background-color:  ${props => 
         props.$tipoValorClima === 'tempMin' ? '#bad2ff' 
@@ -124,57 +130,75 @@ const MinMaxTempAlert = styled.div`
 
 `
 
-const Card = ({ tipoAlerta }) => {
+const Card = ({ iconeNome, mediaTempMax, mediaTempMin, dataBrasil, dataOriginal, mensagemAlerta, temperaturaMin, temperaturaMax, umidadeMin, umidadeMax, nascerSol, porSol, chuva}) => {
+
+    const [diaSemana, setDiaSemana] = useState()
+    const [iconeImagem, setIconeImagem] = useState()
+
+    useEffect(()=> {
+       pegarNomeDia(dataOriginal.replace('-','/'), 'pt-BR')
+       pegarIcone(iconeNome)
+    },[])
+
+    function pegarNomeDia(dateStr, locale) {
+        var date = new Date(dateStr);
+        setDiaSemana( date.toLocaleDateString(locale, { weekday: 'long'}) )       
+    }
+
+    const pegarIcone = async (nomeIcone) => {
+        const resposta = await import(`../assets/weather_icons/${nomeIcone}.png`)
+        setIconeImagem( resposta.default )
+    }
+
     return(
-        <CardContainer>
+        <CardContainer >
             <TopCardData> 
-                <img src={DrizzlingImage} alt="" />
+                <img src={iconeImagem} />
                 <TimeData>
-                    <span><b>31/01/2024</b></span>
-                    <span>Quarta-feira</span>
+                    <span><b>{dataBrasil}</b></span>
+                    <span>{diaSemana}</span>
                 </TimeData>
             </TopCardData>
             <AlertMessage>
-                Uma frente fria permanece semi-estacionária entre MG e BA, 
-                deixando o tempo chuvoso nestas áreas.
+                {mensagemAlerta}
             </AlertMessage>
             <WeatherDataArea>
                 <WeatherDetails>
                     <span>Temperatura: </span> 
                     <div>
-                        <WeatherData $tipoValorClima={"tempMin"}>min: 14º</WeatherData>
-                        <WeatherData $tipoValorClima={"tempMax"}>max: 32º</WeatherData>
+                        <WeatherData $tipoValorClima={"tempMin"}>min: {temperaturaMin}º</WeatherData>
+                        <WeatherData $tipoValorClima={"tempMax"}>max: {temperaturaMax}º</WeatherData>
                     </div>
                 </WeatherDetails>
                 <WeatherDetails>
                     <span>Umidade: </span> 
                     <div>
-                        <WeatherData $tipoValorClima={"umidade"}>28% - 81% </WeatherData>
+                        <WeatherData $tipoValorClima={"umidade"}>{umidadeMin}% - {umidadeMax}% </WeatherData>
                     </div>
                 </WeatherDetails>
                 <WeatherDetails>
                     <span>Sol: </span> 
                     <div>
-                        <WeatherData $tipoValorClima={"sol"}>06:30 - 18:00 </WeatherData>
+                        <WeatherData $tipoValorClima={"sol"}>{nascerSol} - {porSol} </WeatherData>
                     </div>
                 </WeatherDetails>
                 <WeatherDetails>
                     <span>Chuva: </span> 
                     <div>
-                        <WeatherData $tipoValorClima={"chuva"}>28% </WeatherData>
+                        <WeatherData $tipoValorClima={"chuva"}>{chuva}% </WeatherData>
                     </div>
                 </WeatherDetails>
             </WeatherDataArea>
-            {tipoAlerta == 'max' &&
+            {temperaturaMax > mediaTempMax &&
                 <MinMaxTempAlert $alerta={"max"}>
                     <box-icon name='error' color="#c74c2e" size="sm"></box-icon>
-                    <span>Temperatura máxima deste dia será superior a máxima média do periodo.</span>
+                    <span>Temperatura máxima deste dia será superior a máxima média do período.</span>
                 </MinMaxTempAlert>
             }
-            {tipoAlerta == 'min' &&
+            {temperaturaMin < mediaTempMin &&
                 <MinMaxTempAlert $alerta={"min"}>
                     <box-icon name='error-circle' color="#588ce0" size="sm" />
-                    <span>Temperatura mínima deste dia será inferior a máxima média do periodo.</span>
+                    <span>Temperatura mínima deste dia será inferior a mínima média do período.</span>
                 </MinMaxTempAlert>
             }
         </CardContainer>

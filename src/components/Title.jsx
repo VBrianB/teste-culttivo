@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import DrizzlingImage from '../assets/weather_icon_example_drizzling.png'
-import HumitImage from '../assets/weather_icon_example_humid.png'
 
 const TitleSection = styled.section`
     display: flex;
@@ -18,10 +17,8 @@ const TitleSection = styled.section`
 `
 const TitleText = styled.h3`
     font-size: 32px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
     text-align: center;
+    gap: 8px;
     color: #fcfcfc;
     position: relative;
     font-weight: 500;
@@ -44,22 +41,13 @@ const DrizzlingIcon = styled.img`
     right: -60px;
 `
 
-const HumitIcon = styled.img`
-    max-width:84px;
-    position: absolute;
-    top: 60px;
-    left: -90px;
-`
-
 const Title = () => {
     return(
         <TitleSection>
-            
-            <TitleText> 
-                Temperatura para <b>Varginha</b> nos próximos <b>7 dias.</b>
-                <DrizzlingIcon src={DrizzlingImage} />
-                {/* <HumitIcon src={HumitImage} /> */}
-            </TitleText> 
+                <TitleText> 
+                    Temperatura para <b>Varginha</b> nos próximos <b>7 dias.</b>
+                    <DrizzlingIcon src={DrizzlingImage} />
+                </TitleText> 
         </TitleSection>
     )
 }
