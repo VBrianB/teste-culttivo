@@ -12,14 +12,12 @@ const MainContainer = styled.main`
 
 const Container = () => {
 
-    const [nomeCidade, setNomeCidade] = useState('')
     const [listaPrevisoes, setListaPrevisoes] = useState([])
     const [alertaErro, setAlertaErro] = useState(false)
 
     useEffect(()=>{
         Clima.pegarClima(6754)
         .then( resposta => { 
-            setNomeCidade(resposta.name); 
             setListaPrevisoes(resposta.data)
         })
         .catch( error => { 

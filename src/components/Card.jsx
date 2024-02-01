@@ -1,7 +1,20 @@
-import styled from "styled-components"
+import {styled, keyframes} from "styled-components"
 import 'boxicons'
 import DrizzlingImage from '../assets/weather_icon_example_drizzling.png'
 import { useEffect, useState } from "react"
+
+
+const showDown = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+`;
 
 const CardContainer = styled.div`
     display: flex;
@@ -11,6 +24,7 @@ const CardContainer = styled.div`
     padding: 20px;
     border: 1px solid #00000024;
     height: 100%;
+    animation: ${showDown} .8s ease;
 `
 
 const TopCardData = styled.div`

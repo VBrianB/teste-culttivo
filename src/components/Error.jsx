@@ -8,23 +8,22 @@ const ErrorMessage = styled.main`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    
     img{
         max-width: 320px;
     }
+    
     span{
         margin-bottom: 220px;
         font-size: 24px;
         max-width: 50%;
         text-align: center;
     }
-    
+
     b{
         color:black;
     }
 `
-
-
 const Error = () => {
     return(
         <ErrorMessage>

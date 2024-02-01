@@ -32,35 +32,43 @@ const Wrapper = styled.div`
     height: 100%;
 `
 const CuustomCarouselButtonLeft = styled.button`
-    background-color: black;
-    width: 60px;
-    height: 60px;
+    background-color: #0d1a4e;
+    width: 55px;
+    height: 55px;
     border: none;
-    border-radius: 64px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     z-index: 99;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
+    top: 40%;
+    left: 190px;
+    transform: translateY(-40%);
+
+    @media screen and (max-width: 1700px){
+        left: 20px;
+    }
 `
 
 const CuustomCarouselButtonRight = styled.button`
-    background-color: black;
-    width: 60px;
-    height: 60px;
+    background-color: #0d1a4e;
+    width: 55px;
+    height: 55px;
     border: none;
-    border-radius: 64px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     z-index: 99;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
+    top: 40%;
+    right: 190px;
+    transform: translateY(-40%);
+    
+    @media screen and (max-width: 1700px){
+        right: 20px;
+    }
 `
 
 const CarouselContainer = ({ lista }) => {
