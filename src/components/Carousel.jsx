@@ -18,9 +18,10 @@ const CarouselItemContainer = styled.div`
     gap: 20px;
     height: 100%;
 
-    @media screen and (max-width:800px) {
+    @media screen and (max-width:900px) {
         flex-direction: column;
-        margin-top: 120px;
+        padding-top: 30px;
+        padding-bottom: 120px;
     }
 `
 
@@ -29,7 +30,7 @@ const Wrapper = styled.div`
     margin-top: 5%;
     transform: translateY(-5%);
     position: relative;
-    height: 100%;
+    height: 75%;
 `
 const CuustomCarouselButtonLeft = styled.button`
     background-color: #0d1a4e;
@@ -48,6 +49,13 @@ const CuustomCarouselButtonLeft = styled.button`
 
     @media screen and (max-width: 1700px){
         left: 20px;
+    }
+
+    @media screen and (max-width:900px) {
+        flex-direction: column;
+        left: 35%;
+        top: 95%;
+        transform: translate(-50%, -50%);
     }
 `
 
@@ -68,6 +76,13 @@ const CuustomCarouselButtonRight = styled.button`
     
     @media screen and (max-width: 1700px){
         right: 20px;
+    }
+
+    @media screen and (max-width:900px) {
+        flex-direction: column;
+        right: 26%;
+        top: 95%;
+        transform: translate(-50%, -50%);
     }
 `
 

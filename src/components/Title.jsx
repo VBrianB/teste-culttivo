@@ -39,6 +39,11 @@ const DrizzlingIcon = styled.img`
     position: absolute;
     top: -40px;
     right: -60px;
+
+    @media screen and (max-width:900px) {
+        top: -65px;
+        right: 0px;
+    }
 `
 
 const Title = () => {

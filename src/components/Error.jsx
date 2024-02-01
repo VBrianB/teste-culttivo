@@ -14,15 +14,25 @@ const ErrorMessage = styled.main`
     }
     
     span{
-        margin-bottom: 220px;
         font-size: 24px;
         max-width: 50%;
         text-align: center;
     }
-
     b{
         color:black;
     }
+
+    @media screen and (max-width: 500px) {
+        img{
+        max-width: 220px;
+    }
+    
+    span{
+        font-size: 16px;
+        max-width: 90%;
+        text-align: center;
+    }
+}
 `
 const Error = () => {
     return(

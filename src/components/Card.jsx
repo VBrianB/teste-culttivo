@@ -25,14 +25,22 @@ const CardContainer = styled.div`
     border: 1px solid #00000024;
     height: 100%;
     animation: ${showDown} .8s ease;
+
 `
 
 const TopCardData = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
     img{
         max-width: 90px;
         padding: 10px;
+    }   
+    
+    @media screen and (max-width:1300px) {
+        img{
+            max-width: 70px;
+        }
     }
 `
 const TimeData = styled.div`
@@ -44,6 +52,10 @@ const TimeData = styled.div`
     padding: 20px;
     b{
         color: #636363;
+    }
+
+    @media screen and (max-width:1300px) {
+        font-size: 16px;
     }
 `
 const AlertMessage = styled.div`
@@ -59,6 +71,11 @@ const AlertMessage = styled.div`
     align-items: center;
     justify-content: center;
     padding-left: 20px;
+
+    @media screen and (max-width:1300px) {
+        font-size: 12px; 
+        max-width: 270px;
+    }
 `
 
 const WeatherDataArea = styled.div`
@@ -80,6 +97,9 @@ const WeatherDetails = styled.div`
     div{
         display: flex;
         width: 60%;
+    }
+    @media screen and (max-width:1300px) {
+        font-size: 10px;
     }
 `
 const WeatherData = styled.p`
@@ -112,6 +132,10 @@ const WeatherData = styled.p`
         : props.$tipoValorClima === 'sol' ? '#c58e20'
         : props.$tipoValorClima === 'chuva' && '#585858'};
 
+    @media screen and (max-width:1300px) {
+            font-size: 10px;
+        }
+
 `
 
 const MinMaxTempAlert = styled.div`
@@ -139,6 +163,17 @@ const MinMaxTempAlert = styled.div`
         justify-content: center;
         max-width: 240px;
         font-size: 12px;
+    }
+
+    @media screen and (max-width:1300px) {
+        padding: 20px 0;
+        font-size: 10px;
+        gap: 0;
+        justify-content: center;
+
+        span{
+            max-width: 230px;
+        }
     }
 
 `

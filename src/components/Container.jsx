@@ -6,8 +6,7 @@ import Clima from "../services/clima"
 import Error from "./Error"
 
 const MainContainer = styled.main`
-    height: 100%;
-    background-color: #fcfcfc;
+    height: 75%;
 `
 
 const Container = () => {
