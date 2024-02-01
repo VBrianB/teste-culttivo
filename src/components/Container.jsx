@@ -3,6 +3,7 @@ import Title from "./Title"
 import CarouselContainer from "./Carousel"
 import { useEffect , useState} from "react"
 import Clima from "../services/clima"
+import Error from "./Error"
 
 const MainContainer = styled.main`
     height: 100%;
@@ -13,23 +14,30 @@ const Container = () => {
 
     const [nomeCidade, setNomeCidade] = useState('')
     const [listaPrevisoes, setListaPrevisoes] = useState([])
-    const [carregamento, setCarregamento] = useState(true)
+    const [alertaErro, setAlertaErro] = useState(false)
 
     useEffect(()=>{
         Clima.pegarClima(6754)
         .then( resposta => { 
             setNomeCidade(resposta.name); 
             setListaPrevisoes(resposta.data)
-            setCarregamento(false)
         })
+        .catch( error => { 
+            console.error(error);
+            setAlertaErro(true)
+        });
     },[])
     
     return(
         <MainContainer>
-            {listaPrevisoes !== undefined &&
+            <Title/>
+            {!alertaErro ?
                 <>
-                    <Title nomeCidade={nomeCidade} lista={listaPrevisoes}/>
                     <CarouselContainer lista={listaPrevisoes}/>
+                </>
+                :
+                <>
+                    <Error />
                 </>
             }
         </MainContainer>

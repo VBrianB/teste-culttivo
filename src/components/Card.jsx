@@ -2,7 +2,6 @@ import styled from "styled-components"
 import 'boxicons'
 import DrizzlingImage from '../assets/weather_icon_example_drizzling.png'
 import { useEffect, useState } from "react"
-import useImage from "../hooks/useImage"
 
 const CardContainer = styled.div`
     display: flex;
@@ -140,9 +139,9 @@ const Card = ({ iconeNome, mediaTempMax, mediaTempMin, dataBrasil, dataOriginal,
        pegarIcone(iconeNome)
     },[])
 
-    function pegarNomeDia(dateStr, locale) {
-        var date = new Date(dateStr);
-        setDiaSemana( date.toLocaleDateString(locale, { weekday: 'long'}) )       
+    function pegarNomeDia(dia, localizacao) {
+        var data = new Date(dia);
+        setDiaSemana( data.toLocaleDateString(localizacao, { weekday: 'long'}) )       
     }
 
     const pegarIcone = async (nomeIcone) => {
