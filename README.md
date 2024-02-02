@@ -13,9 +13,10 @@ para facilitar o deploy e compartilhamento do projeto, optei por manter dentro d
 
 ## 🛠️ Construído com
 
+* [ReactJs](https://react.dev/)
 * [Axios](https://axios-http.com/docs/intro) 
 * [BoxIcons](https://boxicons.com/usage) 
-* [react-responsive-carousel](https://www.npmjs.com/package/react-responsive-carousel) 
-* [styled-components](https://styled-components.com/docs) 
+* [React-responsive-carousel](https://www.npmjs.com/package/react-responsive-carousel) 
+* [Styled-components](https://styled-components.com/docs) 
 
 ⌨️ com ❤️ por [Vinicius Brian Bolzani](https://github.com/VBrianB) 
