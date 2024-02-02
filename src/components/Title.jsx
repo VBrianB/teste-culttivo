@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import DrizzlingImage from '../assets/weather_icon_example_drizzling.png'
 
-const TitleSection = styled.section`
+const TitleSection = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,9 +10,11 @@ const TitleSection = styled.section`
     background: linear-gradient(90deg, rgba(73,89,142,1) 0%, rgba(57,71,114,1) 48%, rgba(40,52,90,1) 100%);
     border-radius: 0% 0% 60% 60%;
     box-shadow: 0px 0px 32px 0px rgba(0,0,0,0.3);
+    padding: 50px;
 
     @media screen and (max-width:930px) {
         border-radius: 0% 0% 20% 20%;
+        padding: 40px;
     }
 `
 const TitleText = styled.h3`

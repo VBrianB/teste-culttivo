@@ -6,6 +6,13 @@ import { useEffect, useState } from "react";
 import Clima from "../services/clima";
 import { memo } from "react";
 
+const Wrapper = styled.div`
+    width: 100%;
+    margin-top: 5%;
+    transform: translateY(-5%);
+    position: relative;
+`
+
 const CarouselSection = styled.section`
     width: 100%;
     height: 100%;
@@ -20,18 +27,11 @@ const CarouselItemContainer = styled.div`
 
     @media screen and (max-width:900px) {
         flex-direction: column;
-        padding-top: 30px;
+        padding-top: 120px;
         padding-bottom: 120px;
     }
 `
 
-const Wrapper = styled.div`
-    width: 100%;
-    margin-top: 5%;
-    transform: translateY(-5%);
-    position: relative;
-    height: 75%;
-`
 const CuustomCarouselButtonLeft = styled.button`
     background-color: #0d1a4e;
     width: 55px;

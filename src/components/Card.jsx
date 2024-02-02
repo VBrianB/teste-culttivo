@@ -3,7 +3,6 @@ import 'boxicons'
 import DrizzlingImage from '../assets/weather_icon_example_drizzling.png'
 import { useEffect, useState } from "react"
 
-
 const showDown = keyframes`
   from {
     opacity: 0;
@@ -25,13 +24,13 @@ const CardContainer = styled.div`
     border: 1px solid #00000024;
     height: 100%;
     animation: ${showDown} .8s ease;
-
+    max-height: 570px;
 `
-
 const TopCardData = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
     img{
         max-width: 90px;
         padding: 10px;
@@ -50,6 +49,7 @@ const TimeData = styled.div`
     font-weight: 500;
     color: #8b8b8b;
     padding: 20px;
+
     b{
         color: #636363;
     }
@@ -77,7 +77,6 @@ const AlertMessage = styled.div`
         max-width: 270px;
     }
 `
-
 const WeatherDataArea = styled.div`
     display: flex;
     flex-direction: column;
@@ -135,9 +134,7 @@ const WeatherData = styled.p`
     @media screen and (max-width:1300px) {
             font-size: 10px;
         }
-
 `
-
 const MinMaxTempAlert = styled.div`
    display: flex;
    padding: 20px;
@@ -175,10 +172,10 @@ const MinMaxTempAlert = styled.div`
             max-width: 230px;
         }
     }
-
 `
 
-const Card = ({ iconeNome, mediaTempMax, mediaTempMin, dataBrasil, dataOriginal, mensagemAlerta, temperaturaMin, temperaturaMax, umidadeMin, umidadeMax, nascerSol, porSol, chuva}) => {
+const Card = ({ iconeNome, mediaTempMax, mediaTempMin, dataBrasil, dataOriginal, mensagemAlerta, 
+    temperaturaMin, temperaturaMax, umidadeMin, umidadeMax, nascerSol, porSol, chuva}) => {
 
     const [diaSemana, setDiaSemana] = useState()
     const [iconeImagem, setIconeImagem] = useState()
@@ -197,7 +194,7 @@ const Card = ({ iconeNome, mediaTempMax, mediaTempMin, dataBrasil, dataOriginal,
         const resposta = await import(`../assets/weather_icons/${nomeIcone}.png`)
         setIconeImagem( resposta.default )
     }
-
+    
     return(
         <CardContainer >
             <TopCardData> 

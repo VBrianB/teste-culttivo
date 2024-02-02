@@ -1,13 +1,13 @@
 import styled from "styled-components"
 import ErrorImage from '../assets/error_image.png'
 
-const ErrorMessage = styled.main`
+const ErrorMessage = styled.section`
     width: 100%;
-    height: 75%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100%;
     
     img{
         max-width: 320px;
