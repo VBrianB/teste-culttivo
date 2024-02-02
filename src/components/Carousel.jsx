@@ -3,8 +3,6 @@ import Card from "./Card"
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useEffect, useState } from "react";
-import Clima from "../services/clima";
-import { memo } from "react";
 
 const Wrapper = styled.div`
     width: 100%;
@@ -15,7 +13,7 @@ const Wrapper = styled.div`
 
 const CarouselSection = styled.section`
     width: 100%;
-    height: 100%;
+
 `
 const CarouselItemContainer = styled.div`
     width: 100%;
@@ -23,7 +21,6 @@ const CarouselItemContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: 20px;
-    height: 100%;
 
     @media screen and (max-width:900px) {
         flex-direction: column;

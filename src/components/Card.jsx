@@ -1,6 +1,5 @@
 import {styled, keyframes} from "styled-components"
 import 'boxicons'
-import DrizzlingImage from '../assets/weather_icon_example_drizzling.png'
 import { useEffect, useState } from "react"
 
 const showDown = keyframes`

@@ -1,4 +1,4 @@
-import {styled, createGlobalStyle} from "styled-components"
+import { createGlobalStyle} from "styled-components"
 import { useEffect , useState} from "react"
 import Title from './components/Title'
 import Footer from './components/Footer'
