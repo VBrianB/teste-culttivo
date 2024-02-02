@@ -174,7 +174,7 @@ const MinMaxTempAlert = styled.div`
 `
 
 const Card = ({ iconeNome, mediaTempMax, mediaTempMin, dataBrasil, dataOriginal, mensagemAlerta, 
-    temperaturaMin, temperaturaMax, umidadeMin, umidadeMax, nascerSol, porSol, chuva}) => {
+temperaturaMin, temperaturaMax, umidadeMin, umidadeMax, nascerSol, porSol, chuva}) => {
 
     const [diaSemana, setDiaSemana] = useState()
     const [iconeImagem, setIconeImagem] = useState()
@@ -194,6 +194,7 @@ const Card = ({ iconeNome, mediaTempMax, mediaTempMin, dataBrasil, dataOriginal,
         setIconeImagem( resposta.default )
     }
     
+    console.log(iconeImagem)
     return(
         <CardContainer >
             <TopCardData> 
