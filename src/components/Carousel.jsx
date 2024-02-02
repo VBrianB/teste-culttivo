@@ -129,7 +129,7 @@ const CarouselContainer = ({ lista }) => {
 
     return(
         <Wrapper>
-            <Carousel showArrows={true} showThumbs={false} showIndicators={false} showStatus={false}  emulateTouch={false} preventMovementUntilSwipeScrollTolerance={true}
+            <Carousel showArrows={true} showThumbs={false} showIndicators={false} showStatus={false}  emulateTouch={false} swipeScrollTolerance={80} preventMovementUntilSwipeScrollTolerance={true}
             renderArrowPrev={(onClickHandler, hasPrev, label) =>
                 hasPrev && (
                     <CuustomCarouselButtonLeft $direcao='left' onClick={onClickHandler} > 
