@@ -13,6 +13,7 @@ const Wrapper = styled.div`
 
 const CarouselSection = styled.section`
     width: 100%;
+    height: 100%;
 
 `
 const CarouselItemContainer = styled.div`
@@ -21,6 +22,7 @@ const CarouselItemContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: 20px;
+    height: 100%;
 
     @media screen and (max-width:900px) {
         flex-direction: column;
