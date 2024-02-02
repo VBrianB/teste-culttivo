@@ -24,6 +24,7 @@ const CardContainer = styled.div`
     height: 100%;
     animation: ${showDown} .8s ease;
     max-height: 570px;
+    height: 100%;
 `
 const TopCardData = styled.div`
     display: flex;
@@ -194,7 +195,6 @@ temperaturaMin, temperaturaMax, umidadeMin, umidadeMax, nascerSol, porSol, chuva
         setIconeImagem( resposta.default )
     }
     
-    console.log(iconeImagem)
     return(
         <CardContainer >
             <TopCardData> 

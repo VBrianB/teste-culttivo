@@ -13,6 +13,7 @@ const Wrapper = styled.div`
 
 const CarouselSection = styled.section`
     width: 100%;
+    height: 100%;
 
 `
 const CarouselItemContainer = styled.div`
@@ -21,6 +22,7 @@ const CarouselItemContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: 20px;
+    height: 100%;
 
     @media screen and (max-width:900px) {
         flex-direction: column;
@@ -127,7 +129,7 @@ const CarouselContainer = ({ lista }) => {
 
     return(
         <Wrapper>
-            <Carousel showArrows={true} showThumbs={false} showIndicators={false} showStatus={false} 
+            <Carousel showArrows={true} showThumbs={false} showIndicators={false} showStatus={false}  emulateTouch={false} preventMovementUntilSwipeScrollTolerance={true}
             renderArrowPrev={(onClickHandler, hasPrev, label) =>
                 hasPrev && (
                     <CuustomCarouselButtonLeft $direcao='left' onClick={onClickHandler} > 
